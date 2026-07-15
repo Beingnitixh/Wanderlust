@@ -35,7 +35,7 @@ module.exports.show = async(req,res)=>{
      res.redirect("/listings");
    }else{
    console.log(listing.reviews);
-   res.render("/Users/Nitish/Desktop/Coding.cpp/Sigma(7.0)/WEB DEV/MajorProj/views/listings/show.ejs",{listing});
+   res.render("../views/listings/show.ejs",{listing});
    }
   }
 
