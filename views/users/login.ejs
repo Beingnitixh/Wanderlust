@@ -1,0 +1,29 @@
+<% layout("/layouts/boilerplate")%>
+
+    <div class="row signup-box mb-1 ">
+        <h3 class="col-6 offset-3 mt-2">Login Your Account Here:</h3>
+      <div class="col-6 offset-3">
+        <form method="post" action="/login" class="needs-validation" novalidate>
+          <div class="mb-3">
+            <label for="username" class="form-label">Username : </label>
+            <input name="username"
+            type="text" 
+            class="form-control" 
+            placeholder="e.g. beingnitixh"
+            required >
+            <div class="invalid-feedback">Username Required!!</div>
+          </div>
+          <div class="mb-3">
+            <label for="password" class="form-label">Password : </label>
+            <input name="password"
+            type="text" 
+            class="form-control" 
+            placeholder="e.g. #rhufh321" 
+            required>
+            <div class="invalid-feedback">Password Required!</div>
+          </div>
+          <button class="btn btn-success mb-3">Login</button>
+        </form>
+        <a href="/signup" class="signup-login">Don't have an Account?SignUp</a>
+      </div>
+    </div>

@@ -1,0 +1,66 @@
+<% layout("/layouts/boilerplate")%>
+<body>
+    
+  <div class="filters">
+      <i class="fa-solid fa-angle-left scroll-arrow" id="scroll-left"></i>
+     <div class="filter">
+      <div><i  class="fa-solid fa-fire"> </i></div>
+      <p>Trending</p>
+     </div>
+     <div class="filter">
+      <div><i class="fa-solid fa-bed"></i></div>
+      <p>Rooms</p>
+     </div>
+     <div class="filter">
+      <div><i  class="fa-solid fa-mountain-city"> </i></div>
+      <p>Iconic cities</p>
+     </div>
+     <div class="filter">
+      <div><i class="fa-solid fa-mountain"></i></div>
+      <p>Mountains</p>
+     </div>
+     <div class="filter">
+      <div><i  class="fa-brands fa-fort-awesome"> </i></div>
+      <p>Castles</p>
+     </div>
+     <div class="filter">
+      <div><i class="fa-solid fa-campground"></i></div>
+      <p>Camping</p>
+     </div>
+     <div class="filter">
+      <div><i  class="fa-solid fa-cow"> </i></div>
+      <p>Farm</p>
+     </div>
+     <div class="filter">
+      <div><i class="fa-solid fa-snowflake"></i></div>
+      <p>Arctic</p>
+     </div>
+      <i class="fa-solid fa-angle-right scroll-arrow" id="scroll-right"></i>   
+    <form class="searchbar" action="/listings/search" method="GET">
+      <input 
+      type="text"
+     name="q" 
+     placeholder="Where to? Search Here!"
+     >
+     <button type="submit" class="search-btn">
+      <i class="fa-solid fa-magnifying-glass search-icon"></i>
+     </button>
+     </form>
+  </div>
+  <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+   <% for(let listing of allListings){ %>
+    <a href="/listings/<%=listing._id%>" class="click-card">
+    <div class="card col listing-card ">
+      <img src="<%=listing.image.url%>" class="card-img-top" alt="listing_img">
+      <div class="card-img-overlay"></div>
+      <div class="card-body">
+        <p class="card-text">
+          <b><%=listing.title%></b><br>
+         &#8377;<%=listing.price.toLocaleString("an-IN")%> /night
+        </p>
+      </div>
+   </div>
+   <% } %>
+   </a>
+  </div>
+</body>

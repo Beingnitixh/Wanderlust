@@ -1,0 +1,191 @@
+body{
+    font-family: "Plus Jakarta Sans", sans-serif !important;
+    display: flex;
+    flex-direction: column;
+    min-height:100vh;
+} 
+.container{
+    flex: 1;
+}
+/* navbar style */
+.navbar{
+    background-color: white;
+    height : 5rem;
+}
+.fa-compass{
+    color: #fe424d;
+    font-size: 2rem;
+}
+.nav-link{
+    color: #222222 !important;
+}
+
+/* footer style */
+.f-info-links a{
+    text-decoration: none;
+    margin-right: 1rem;
+    color: #222222;
+}
+ .f-info-links{
+    margin-left: 2.2rem;
+} 
+.f-info-links a:hover{
+    text-decoration: underline;
+}
+.f-info-links,.f-info-social,.f-info-brand{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.f-info-social i{
+     font-size: 1.2rem;
+     margin-left: 1rem;
+}
+
+.f-info-social{
+     width: 100%;
+     font-size: 1.2rem;
+}
+
+.f-info{
+    text-align: center;
+    height: 8rem;
+    background-color: #ebebeb;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: space-evenly;
+}
+
+/* card style */
+.listing-card{
+    border: none !important;
+    margin-bottom: 2rem;
+}
+.card-img-top{
+    border-radius: 1rem !important;
+    width: 100%;
+    object-fit: cover;
+    height: 18rem;
+}
+.card-body{
+    padding: 0 !important;
+}
+
+.click-card{
+    text-decoration: none;
+}
+.card-img-overlay{
+    opacity: 0;
+}
+.card-img-overlay:hover{
+    opacity: 0.25;
+    background-color: white;
+}
+
+.add-btn{
+    background-color: #fe424d !important;
+   border: none !important;
+}
+/* displaying perticular listing image */
+.show-img{
+    height: 30vh;
+}
+.del-edit-btns{
+    display: flex;
+    margin-bottom: 3rem;
+}
+
+.signup-box{
+    border : 2rem !important;
+    background-color:bisque;
+}
+.signup-login{
+    display : inline-block;
+    margin-bottom: 15px;
+}
+
+.card-rating{
+    transform: scale(0.5);        
+  transform-origin: left center; 
+  margin-bottom: 5px;
+
+}
+
+/* To add styling to icons below navbar */
+.filters{
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+}
+.filter{
+    text-align: center;
+    margin-left: 10px;
+    margin-right: 2.32rem;
+    opacity: 1;
+}
+.filter:hover{
+    opacity: 0.7;
+    cursor: pointer;
+}
+.filter p{
+    font-size: small;
+}
+.filter i{
+    color: #fe424d;
+}
+
+
+.searchbar {
+    position: relative;
+    width: 300px;
+}
+
+.searchbar input {
+    width: 100%;
+    height: 40px;
+    padding-left: 15px;   /* Space for the icon */
+    border: 2px solid #fe424d;
+    border-radius: 20px;
+    font-size: 16px;
+}
+
+.search-icon {
+    position: absolute;
+    left: 16rem;
+    top: 1.34rem;
+    transform: translateY(-50%);
+    color: black;
+    font-size: 20px;
+}
+.search-icon:hover{
+    cursor: pointer;
+    font-size: 18px;
+}
+
+#scroll-left {
+    margin-top: 10px;
+    font-size: 20px;
+    opacity: 0.7;
+}
+#scroll-right{
+    margin-top: 10px;
+    margin-left: -22px;
+    margin-right: 20px;
+    font-size: 20px;
+    opacity: 0.7;
+}
+.scroll-arrow:hover{
+    opacity: 1 !important;
+    cursor: pointer;
+}
+
+.search-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
