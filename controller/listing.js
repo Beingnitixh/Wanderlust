@@ -9,13 +9,6 @@ module.exports.searchRes = async(req,res)=>{
    res.render("../views/listings/searchRes.ejs",{allListings,q});
 }
 
-//index route
-module.exports.index = async(req,res)=>{
-  const allListings = await Listing.find({});
-    res.render("../views/listings/index.ejs",{allListings,isLoggedIn});
-};
-
-
 //to render new listing form
 module.exports.new = (req,res)=>{
     res.render("../views/listings/create.ejs");
