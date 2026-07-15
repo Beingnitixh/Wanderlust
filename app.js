@@ -22,11 +22,8 @@ const User = require("./models/user.js");
 const listingsRouter = require("./routes/listing.js");
 const reviewsRouter = require("./routes/review.js");
 const usersRouter = require("./routes/user.js");
-const wrapAsync = require('./utils/wrapAsync.js');
 
 const dbURL = process.env.ATLASDB_URL;
-const Listing = require("./models/listing.js");
-const {isLoggedIn} = require("./middleware");
 
 //settingup database
 main().then(()=>{
@@ -100,11 +97,9 @@ main().then(()=>{
 //    res.send(registeredUser);
 //  });
 
-
-app.get("/",wrapAsync(async(req,res)=>{
-     const allListings = await Listing.find({});
-   res.render("./views/listings/index.ejs",{allListings,isLoggedIn});
-}))
+app.get("/", (req, res) => {
+    res.redirect("/listings");
+});
 app.use("/listings",listingsRouter);
 app.use("/listings/:id/reviews",reviewsRouter);
 app.use("/",usersRouter);

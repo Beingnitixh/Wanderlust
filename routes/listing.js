@@ -14,6 +14,8 @@ const upload = multer({storage})
 //search result listing on the basis of location and country
 router.get("/search",wrapAsync(listingController.searchRes));
 
+//index route
+router.get("/",wrapAsync(listingController.index));
 
 //create/add listing
 router.get("/new",isLoggedIn,(listingController.new));
