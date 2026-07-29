@@ -8,7 +8,12 @@ module.exports.searchRes = async(req,res)=>{
    const allListings = await Listing.find({});
    res.render("../views/listings/searchRes.ejs",{allListings,q});
 }
-
+//categoryFilter
+module.exports.filterByTag = async(req,res)=>{
+  let {tag} = req.params;
+   const allListings = await Listing.find({tags : tag});
+   res.render("../views/listings/categoryFilter.ejs",{allListings});
+}
 //index route
 module.exports.index = async(req,res)=>{
   const allListings = await Listing.find({});

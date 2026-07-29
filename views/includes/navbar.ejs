@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-md bg-body-light border-bottom sticky-top">
+<nav class="navbar navbar-expand-md bg-body-light border-bottom">
   <div class="container-fluid">
     <a class="navbar-brand" href="/listings"><i class="fa-regular fa-compass"></i></a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -6,17 +6,16 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
-        <a class="nav-link active" aria-current="page" href="/listings">Home</a>
-        <a class="nav-link" href="#">Features</a>
-        <a class="nav-link" href="/listings/new">Add New Listing</a>
+        <a class="nav-link active me-2" aria-current="page" href="/listings">Home</a>
+        <a class="nav-link host-btn me-2" href="/listings/new"><i class="fa-solid fa-globe "></i>Become a Host</a>
       </div>
       <div class="navbar-nav ms-auto">
          <% if(!currUser){ %>
-        <a class="nav-link" aria-current="page" href="/signup"><i class="fa-regular fa-user mt-3"></i> sign up</a>
-        <a class="nav-link" aria-current="page" href="/login"><i class="fa-regular fa-user mt-3"></i> log in</a>
+        <a class="nav-link auth-btn me-2" aria-current="page" href="/signup"><i class="fa-regular fa-user "></i> sign up</a>
+        <a class="nav-link auth-btn me-2" aria-current="page" href="/login"><i class="fa-regular fa-user "></i> log in</a>
         <%}%>
         <% if(currUser){ %>
-        <a class="nav-link" aria-current="page" href="/logout"><i class="fas fa-sign-out-alt mt-3"></i> log out</a>
+        <a class="nav-link auth-btn me-2" aria-current="page" href="/logout"><i class="fas fa-sign-out-alt "></i> log out</a>
         <%}%>
       </div>
     </div>

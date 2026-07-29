@@ -10,6 +10,8 @@ const multer  = require('multer');
 const {storage} = require('../cloudConfig.js');
 const upload = multer({storage})
 
+//route for trending properties search
+router.get("/category/:tag",wrapAsync(listingController.filterByTag));
 
 //search result listing on the basis of location and country
 router.get("/search",wrapAsync(listingController.searchRes));
