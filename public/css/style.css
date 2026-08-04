@@ -8,9 +8,12 @@ body{
     flex: 1;
 }
 /* navbar style */
-.navbar{
+.navbar {
     background-color: white;
-    height : 5rem;
+}
+
+.main-navbar {
+    height: 5rem;
 }
 .fa-compass{
     color: #fe424d;
@@ -156,17 +159,28 @@ body{
 }
 
 /* To add styling to icons below navbar */
-.filters{
-    margin-top: 2rem;
-    margin-bottom: 1rem;
-    margin-left: 5rem;
+.category-navbar {
     display: flex;
-    flex-wrap: wrap;
+    align-items: center;
+    padding: 0;
 }
+
+.category-scroll {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    min-width: 0;
+    overflow-x: auto;
+    gap: 1rem;
+    margin-left: 4rem;
+    margin-top: 1rem;
+}
+
+
 .filter{
     text-align: center;
-    margin-left: 10px;
-    margin-right: 2.32rem;
+    flex: 0 0 auto;
+    margin: 0 1rem;
     opacity: 1;
 }
 .filter:hover{
@@ -184,50 +198,83 @@ body{
 .searchbar {
     position: relative;
     width: 300px;
+    flex: 0 0 300px;
+    margin-right: 4rem;
 }
-
 .searchbar input {
-    width: 100%;
+    width: 90%;
     height: 40px;
-    padding-left: 15px;   /* Space for the icon */
+    padding-left: 15px;
     border: 2px solid #fe424d;
     border-radius: 20px;
     font-size: 16px;
 }
 
+.search-btn {
+    position: relative;
+    right: 3rem;
+    top: 50%;
+    transform: translateY(10%);
+
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+}
+
 .search-icon {
-    position: absolute;
-    left: 16rem;
-    top: 1.34rem;
-    transform: translateY(-50%);
     color: black;
-    font-size: 20px;
+    font-size: 18px;
 }
 .search-icon:hover{
     cursor: pointer;
     font-size: 18px;
 }
 
-#scroll-left {
-    margin-top: 10px;
+#scroll-left,
+#scroll-right {
+    margin-bottom: 20px;
     font-size: 20px;
     opacity: 0.7;
-}
-#scroll-right{
-    margin-top: 10px;
-    margin-left: -22px;
-    margin-right: 20px;
-    font-size: 20px;
-    opacity: 0.7;
+    flex: 0 0 auto;
 }
 .scroll-arrow:hover{
     opacity: 1 !important;
     cursor: pointer;
 }
 
-.search-btn {
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 0;
+
+@media (max-width: 768px) {
+    .filters {
+        margin-left: 1rem;
+        gap: 0.5rem;
+    }
+
+    .filter {
+        margin: 0 0.5rem;
+    }
+
+    .filter p {
+        font-size: 0.7rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .filters {
+        margin-left: 0.5rem;
+        gap: 0.25rem;
+    }
+
+    .filter {
+        margin: 0 0.4rem;
+    }
+
+    .filter i {
+        font-size: 1rem;
+    }
+
+    .filter p {
+        font-size: 0.65rem;
+        margin-bottom: 0;
+    }
 }

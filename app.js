@@ -26,14 +26,19 @@ const usersRouter = require("./routes/user.js");
 const dbURL = process.env.ATLASDB_URL;
 
 //settingup database
+async function main(){
+    await mongoose.connect(dbURL);
+    
+    app.listen(8080,()=>{
+    console.log("server is listening to port 8080");
+});
+ }
 main().then(()=>{
     console.log("connected to db");
 }).catch((err)=>{
     console.log(err);
 });
- async function main(){
-    await mongoose.connect(dbURL);
- }
+ 
 
  //middlewares
  app.set("view engine","ejs");
@@ -88,14 +93,6 @@ main().then(()=>{
     next();
  });
 
-//  app.get("/demouser",async(req,res)=>{
-//     let fakeUser = new User({
-//         email : "fake@gmail.com",
-//         username : "badmoshboi"
-//     });
-//    let registeredUser = await user.register(fakeUser,"badmosh@1");
-//    res.send(registeredUser);
-//  });
 
 app.get("/", (req, res) => {
     res.redirect("/listings");
@@ -114,7 +111,4 @@ app.all("/*splat",(req,res,next)=>{
 app.use((err,req,res,next)=>{
     let {statusCode=500,message="Something went wrong"}= err;
     res.status(statusCode).render("Error",{message});
-});
-app.listen(8080,()=>{
-    console.log("server is listening to port 8080");
 });
