@@ -4,17 +4,26 @@ body{
     flex-direction: column;
     min-height:100vh;
 } 
-.container{
+main {
     flex: 1;
 }
+
 /* navbar style */
 .navbar {
     background-color: white;
 }
 
 .main-navbar {
-    height: 5rem;
+    min-height: 5rem;
+    position: relative;
+    z-index: 1030;
 }
+
+.main-navbar .container-fluid {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+}
+
 .fa-compass{
     color: #fe424d;
     font-size: 2rem;
@@ -36,7 +45,7 @@ body{
     color: #222 !important;
     line-height: normal !important;
 }
-.host-btn:hover{
+.host-btn:hover,.home-btn:hover{
     background-color: #fe424d !important;
      color: #ebebeb !important;
 }
@@ -56,6 +65,24 @@ body{
 .auth-btn:hover{
     background-color: #fe424d !important;
      color: #ebebeb !important;
+}
+.home-btn{
+    background-color: #eeeded !important;
+    border-radius: 10px;
+    height: 40px;
+    padding: 0 14px !important;
+
+     display: flex !important; 
+     align-items: center !important; 
+     justify-content: center !important; 
+    gap: 8px;
+
+    color: #222 !important;
+    line-height: normal !important;
+}
+.host-btn,
+.auth-btn {
+    white-space: nowrap;
 }
 
 /* footer style */
@@ -159,62 +186,89 @@ body{
 }
 
 /* To add styling to icons below navbar */
+/* =========================
+   CATEGORY NAVBAR
+   ========================= */
+
 .category-navbar {
     display: flex;
     align-items: center;
-    padding: 0;
+    
+    width: 100%;
+
+    padding: 0.75rem 1.5rem;
 }
 
 .category-scroll {
     display: flex;
     align-items: center;
-    flex: 1;
-    min-width: 0;
+    border-radius: 10px;
+   border : none;
+   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+   
+    justify-content: space-between;
+   padding: 0.6rem 1.5rem;
+    width: 100%;
+    max-width: 850px;
+
+    margin: 0 auto;
+
     overflow-x: auto;
-    gap: 1rem;
-    margin-left: 4rem;
-    margin-top: 1rem;
+
+    scrollbar-width: none;
 }
 
+.category-scroll::-webkit-scrollbar {
+    display: none;
+}
 
-.filter{
-    text-align: center;
+.filter {
     flex: 0 0 auto;
-    margin: 0 1rem;
-    opacity: 1;
+    text-align: center;
 }
-.filter:hover{
-    opacity: 0.7;
-    cursor: pointer;
+
+.filter p {
+    font-size: 0.75rem;
+    margin: 0.25rem 0 0;
+    white-space: nowrap;
 }
-.filter p{
-    font-size: small;
-}
-.filter i{
+
+.filter i {
     color: #fe424d;
 }
 
+@media (max-width: 700px) {
+
+    .category-scroll {
+        justify-content: flex-start;
+        gap: 1.25rem;
+    }
+
+}
 
 .searchbar {
-    position: relative;
-    width: 300px;
-    flex: 0 0 300px;
-    margin-right: 4rem;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: clamp(180px, 30vw, 300px);
+    margin: 0;
 }
+
 .searchbar input {
-    width: 90%;
+    width: 100%;
     height: 40px;
-    padding-left: 15px;
+    padding: 0 45px 0 15px;
     border: 2px solid #fe424d;
     border-radius: 20px;
     font-size: 16px;
 }
 
 .search-btn {
-    position: relative;
-    right: 3rem;
+    position: absolute;
+    right: 15px;
     top: 50%;
-    transform: translateY(10%);
+    transform: translateY(-50%);
 
     background: none;
     border: none;
@@ -226,55 +280,138 @@ body{
     color: black;
     font-size: 18px;
 }
-.search-icon:hover{
-    cursor: pointer;
-    font-size: 18px;
-}
 
-#scroll-left,
-#scroll-right {
-    margin-bottom: 20px;
-    font-size: 20px;
-    opacity: 0.7;
-    flex: 0 0 auto;
-}
-.scroll-arrow:hover{
-    opacity: 1 !important;
+.search-icon:hover {
     cursor: pointer;
 }
 
+.no-results {
+     flex: 0 0 100%;
+    width: 100% !important;
+    max-width: 100%;
+    display: flex;
+    justify-content: center !important;
+    margin-top: 2.5rem !important;
+}
+.no-results p {
+    margin: 1.5rem !important;
+    text-align: center;
+}
 
-@media (max-width: 768px) {
-    .filters {
-        margin-left: 1rem;
-        gap: 0.5rem;
+@media (min-width: 1001px) {
+
+    /* Hide hamburger */
+    .main-navbar .navbar-toggler {
+        display: none;
     }
 
-    .filter {
-        margin: 0 0.5rem;
+    /* Keep menu permanently visible */
+    .main-navbar .navbar-collapse {
+        display: flex !important;
+        flex-basis: auto;
     }
 
-    .filter p {
-        font-size: 0.7rem;
+    /* Nav links side by side */
+    .main-navbar .navbar-nav {
+        flex-direction: row;
+    }
+
+    /* Normal desktop navbar */
+    .main-navbar .container-fluid {
+        flex-wrap: nowrap;
     }
 }
 
+
+@media (max-width: 1000px) {
+
+    .main-navbar .container-fluid {
+        flex-wrap: wrap;
+    }
+
+    /* Show hamburger */
+    .main-navbar .navbar-toggler {
+        display: block;
+        margin-left: auto;
+    }
+
+    /* Collapse occupies a NEW ROW */
+    .main-navbar .navbar-collapse {
+        flex-basis: 100%;
+        width: 100%;
+        padding-top: 1rem;
+    }
+
+    /* Menu items become vertical */
+    .main-navbar .navbar-nav {
+        flex-direction: column;
+    }
+
+    /* Reset Bootstrap's ms-auto on mobile */
+    .main-navbar .navbar-nav.ms-auto {
+        margin-left: 0 !important;
+        margin-top: 0.5rem;
+    }
+
+    .main-navbar .host-btn,
+    .main-navbar .auth-btn {
+        width: fit-content;
+        margin-right: 0 !important;
+        margin-bottom: 0.5rem;
+    }
+}
 @media (max-width: 576px) {
-    .filters {
-        margin-left: 0.5rem;
-        gap: 0.25rem;
+    .main-navbar .container-fluid {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+}
+
+@media (max-width: 991.98px) {
+
+    .main-navbar {
+        height: 5rem;
+        min-height: 5rem;
     }
 
-    .filter {
-        margin: 0 0.4rem;
+    .main-navbar .container-fluid {
+        position: relative;
+        height: 5rem;
     }
 
-    .filter i {
-        font-size: 1rem;
+    /* The opened hamburger menu floats over the page */
+    .main-navbar .navbar-collapse {
+        position: absolute;
+        top: 5rem;
+        right: 1.5rem;
+
+        width: 220px;
+
+        background-color: white;
+        padding: 1rem;
+        border: 1px solid #ddd;
+        border-radius: 0 0 12px 12px;
+
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+
+        z-index: 1050;
     }
 
-    .filter p {
-        font-size: 0.65rem;
-        margin-bottom: 0;
+    /* Stack the navigation vertically */
+    .main-navbar .navbar-collapse .navbar-nav {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .main-navbar .navbar-collapse .nav-link {
+        width: 100%;
+        margin-right: 0 !important;
+        margin-bottom: 0.5rem;
+    }
+
+    /* Host/login buttons should not stretch weirdly */
+    .main-navbar .navbar-collapse .host-btn,
+    .main-navbar .navbar-collapse .auth-btn {
+        width: 100%;
     }
 }

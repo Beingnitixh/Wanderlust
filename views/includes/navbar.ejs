@@ -1,23 +1,82 @@
-<nav class="navbar main-navbar navbar-expand-md bg-body-light border-bottom">
+<nav class="navbar main-navbar bg-body-light border-bottom sticky-top">
+
   <div class="container-fluid">
-    <a class="navbar-brand" href="/listings"><i class="fa-regular fa-compass"></i></a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+
+    <!-- Logo -->
+    <a class="navbar-brand" href="/listings">
+      <i class="fa-regular fa-compass"></i>
+    </a>
+
+    <!-- Search stays OUTSIDE collapse -->
+    <form class="searchbar" action="/listings/search" method="GET">
+      <input
+        type="text"
+        name="q"
+        placeholder="Where to? Search Here!"
+      >
+
+      <button type="submit" class="search-btn">
+        <i class="fa-solid fa-magnifying-glass search-icon"></i>
+      </button>
+    </form>
+
+    <!-- Hamburger -->
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNavAltMarkup"
+      aria-controls="navbarNavAltMarkup"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
       <span class="navbar-toggler-icon"></span>
     </button>
+
+    <!-- THIS is what hamburger should open -->
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+
+      <!-- Left navigation -->
       <div class="navbar-nav">
-        <a class="nav-link active me-2" aria-current="page" href="/listings">Home</a>
-        <a class="nav-link host-btn me-2" href="/listings/new"><i class="fa-solid fa-globe "></i>Become a Host</a>
+        <a class="nav-link active home-btn me-2" href="/listings">
+          Home
+        </a>
+
+        <a class="nav-link host-btn me-2" href="/listings/new">
+          <i class="fa-solid fa-globe"></i>
+          Become a Host
+        </a>
       </div>
+
+      <!-- Right navigation -->
       <div class="navbar-nav ms-auto">
-         <% if(!currUser){ %>
-        <a class="nav-link auth-btn me-2" aria-current="page" href="/signup"><i class="fa-regular fa-user "></i> sign up</a>
-        <a class="nav-link auth-btn me-2" aria-current="page" href="/login"><i class="fa-regular fa-user "></i> log in</a>
-        <%}%>
+
+        <% if(!currUser){ %>
+
+          <a class="nav-link auth-btn me-2" href="/signup">
+            <i class="fa-regular fa-user"></i>
+            Sign Up
+          </a>
+
+          <a class="nav-link auth-btn me-2" href="/login">
+            <i class="fa-regular fa-user"></i>
+            Log In
+          </a>
+
+        <% } %>
+
         <% if(currUser){ %>
-        <a class="nav-link auth-btn me-2" aria-current="page" href="/logout"><i class="fas fa-sign-out-alt "></i> log out</a>
-        <%}%>
+
+          <a class="nav-link auth-btn me-2" href="/logout">
+            <i class="fas fa-sign-out-alt"></i>
+            Log Out
+          </a>
+
+        <% } %>
+
       </div>
+
     </div>
+
   </div>
 </nav>
